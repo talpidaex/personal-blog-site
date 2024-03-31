@@ -1,0 +1,18 @@
+.underline::after {
+    position: absolute;
+    content: "";
+    height: 2px;
+    bottom: -2px;
+    left: 0;
+    transform: scaleX(0);
+    transform-origin: bottom left;
+    transition: transform 0.25s ease-out;
+    background-color: var(--link-color);
+    width: 100%;
+}
+
+.underline:hover::after {
+    transform: scaleX(1);
+    width: 100%;
+
+}
