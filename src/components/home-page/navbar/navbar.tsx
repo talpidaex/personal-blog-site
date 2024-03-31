@@ -15,7 +15,7 @@ export default function Navbar() {
         <section>
             <div className="flex justify-between items-center">
                 <span className="text-3xl">Logo</span>
-                <nav className="absolute lg:relative flex left-0 w-full lg:w-fit h-full top-20 lg:top-0 z-1 mt-5 lg:mt-0">
+                <nav className="navbar absolute lg:relative flex left-0 w-full lg:w-fit h-full top-20 lg:top-0 mt-5 lg:mt-0 ">
                     <ul className={`lg:flex lg:flex-row gap-10 absolute lg:relative z-10 h-full w-full ${!mobileNavbarOpen && 'hidden'}`}>
                         {Links.map((item, key) => (
                             <li key={key} className={`relative ${styles.underline} border-t lg:border-none dark:border-gray-600 border-gray-300 px-5 py-10 lg:p-0`} >
