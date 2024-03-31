@@ -1,11 +1,17 @@
+import { Props } from "@/pages/blog/constants";
 import Image from "next/image";
+import Link from "next/link";
 
-export default function Post() {
+type Post = Omit<Props, "content">
+
+export default function Post({ title, description, slug }: Post) {
     return (
         <div className="post flex flex-col justify-start items-start gap-5 cursor-pointer">
-            <Image className="post-image rounded-sm" src={"/411x548.png"} alt="post_1" width={411} height={548} />
-            <span>Esse commodo ea nostrud consequat dolor adipisicing duis labore.</span>
-            <h2 className="text-black text-2xl dark:text-white">Titles</h2>
+            <Link href={slug}>
+                <Image className="post-image rounded-sm" src={"/411x548.png"} alt="post_1" width={411} height={548} />
+                <span>{description}</span>
+                <h2 className="text-black text-2xl dark:text-white">{title}</h2>
+            </Link>
         </div>
     )
 }
