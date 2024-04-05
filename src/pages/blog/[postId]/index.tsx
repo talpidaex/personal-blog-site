@@ -22,27 +22,22 @@ export default function PostDetailPage({ content }: { content: string }) {
 
 
 export const getStaticPaths: GetStaticPaths = async () => {
-
+    const allPosts = await getAllPosts();
+    const postIds = allPosts.map(item => ({ params: { postId: item.slug } }))
     return {
-        paths: [
-            {
-                // params : {
-                //     postId : 
-                // }
-            }
-        ],
+        paths: postIds,
         fallback: false
     }
 }
 
 
-export const getStaticProps: GetStaticProps = async (ctx) => {
-    const { params } = ctx
+export const getStaticProps: GetStaticProps = async ({ params }) => {
     const allPosts = await getAllPosts();
-    const postContent = allPosts.find(item => item.slug.includes(params?.postId))
+    const postContent = allPosts.find(item => item.slug.includes(params?.slug as string))
+
     return {
         props: {
-            content: postContent.content
+            content: postContent?.content || ''
         }
     }
 }

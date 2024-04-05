@@ -1,8 +1,8 @@
-import { Props } from "@/pages/blog/constants";
+import { PostType } from "@/utils/constants";
 import Image from "next/image";
 import Link from "next/link";
 
-type Post = Omit<Props, "content">
+type Post = Omit<PostType, "content">
 
 export default function Post({ title, description, slug }: Post) {
     return (
