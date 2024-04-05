@@ -34,7 +34,6 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps: GetStaticProps = async ({ params }) => {
     const allPosts = await getAllPosts();
     const postContent = allPosts.find(item => item.slug.includes(params?.slug as string))
-
     return {
         props: {
             content: postContent?.content || ''

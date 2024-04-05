@@ -11,8 +11,7 @@ function getPostData(fileName: string, index: number) {
 
   let postSlug = fileName.replace(/\.md$/, ""); //remove extention
   const postData = {
-    postId: `post-${index}`,
-    slug: `blog/${postSlug}`,
+    slug: `${postSlug}`,
     ...data,
     content,
   };
