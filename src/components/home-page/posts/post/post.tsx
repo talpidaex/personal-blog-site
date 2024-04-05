@@ -1,4 +1,4 @@
-import { PostType } from "@/utils/constants";
+import { PostType } from "@/utils/post-types";
 import Image from "next/image";
 import Link from "next/link";
 

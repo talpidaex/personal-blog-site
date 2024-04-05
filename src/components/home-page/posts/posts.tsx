@@ -1,4 +1,4 @@
-import { PostsType, PostType } from "@/utils/constants";
+import { PostsType, PostType } from "@/utils/post-types";
 import Post from "./post/post";
 
 export default function Posts({ posts }: PostsType) {

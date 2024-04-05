@@ -1,8 +1,6 @@
 import { getAllPosts } from "@/utils/post-utils"
 import { GetStaticPaths, GetStaticProps } from "next"
-import ReactMarkdown from 'react-markdown'
-import remarkGfm from 'remark-gfm'
-
+import MarkdownView from "react-showdown"
 export default function PostDetailPage({ content }: { content: string }) {
 
     return (
@@ -10,10 +8,9 @@ export default function PostDetailPage({ content }: { content: string }) {
             <div className="breadcrumb">
                 Post Detail
             </div>
-            <main className="post-container">
-                <ReactMarkdown remarkPlugins={[remarkGfm]}>
-                    {content}
-                </ReactMarkdown>
+            <main className="prose prose-lg sm:prose-xl dark:prose-invert post-container">
+                <MarkdownView markdown={content}>
+                </MarkdownView>
             </main>
         </section>
     )
@@ -33,7 +30,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
     const allPosts = await getAllPosts();
-    const postContent = allPosts.find(item => item.slug.includes(params?.slug as string))
+    const postContent = allPosts.find(item => item.slug.includes(params?.postId as string))
     return {
         props: {
             content: postContent?.content || ''

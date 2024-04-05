@@ -4,7 +4,7 @@ import matter from "gray-matter";
 
 const postsDirectory = path.join(process.cwd(), "contents");
 
-function getPostData(fileName: string, index: number) {
+function getPostData(fileName: string) {
   const filePath = path.join(postsDirectory, fileName);
   const fileContent = fs.readFileSync(filePath, "utf-8");
   const { data, content } = matter(fileContent);
@@ -21,6 +21,6 @@ function getPostData(fileName: string, index: number) {
 
 export async function getAllPosts() {
   const posts = fs.readdirSync(postsDirectory);
-  const allPosts = posts.map((post, index) => getPostData(post, index));
+  const allPosts = posts.map((post) => getPostData(post));
   return allPosts;
 }
