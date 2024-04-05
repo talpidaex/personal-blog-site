@@ -1,7 +1,7 @@
-import { Post as PostType, Posts } from "@/pages/blog/constants";
+import { PostsType, PostType } from "@/utils/constants";
 import Post from "./post/post";
 
-export default function Posts({ posts }: Posts) {
+export default function Posts({ posts }: PostsType) {
     return (
         <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {
